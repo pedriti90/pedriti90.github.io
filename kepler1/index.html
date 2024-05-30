@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		<link rel="stylesheet" href="css/estilo.css">
+		<script src="js/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+
+		<script>
+			window.onload = function() {
+				document.addEventListener("contextmenu", function(e){
+				  e.preventDefault();
+				}, false);
+			//Ocultamos la ventan de info
+			    $('.dialogoInfo').hide();
+			    document.getElementById("textoCabecera").innerHTML = txtRecursos.textoCabecera;
+				document.getElementById("textoDatos1").innerHTML = txtRecursos.textoDatos1;
+				document.getElementById("textoDatos2").innerHTML = txtRecursos.textoDatos2;
+				document.getElementById("textoExplicacion2").innerHTML = txtRecursos.textoExplicacion2;
+				document.getElementById("textoExplicacion3").innerHTML = txtRecursos.textoExplicacion3;
+				document.getElementById("textoExplicacion4").innerHTML = txtRecursos.textoExplicacion4;
+				document.getElementById("textoExplicacion").innerHTML = txtRecursos.textoExplicacion;
+				document.getElementById("explicacionRecurso").innerHTML = txtRecursos.explicacionRecurso;}
+		</script>
+
+		<div class="contenedor">
+			<!--Cabecera -->
+			<div class="cabecera">
+				
+				<div class="cabeceraIzq">
+					<h1 id="textoCabecera" class="textoCabecera"></h1>
+				</div>
+
+				<div class="cabeceraDere">
+					<img class="botonInfo" src="img/btn_info.png" onclick="muestraInfo()"/>
+					<a href="../index.html"><img src="img/back.png" /></a> 
+				</div>
+
+			</div>
+
+			<!-- Venatana de dialogo con la info -->
+			<div class="dialogoInfo">
+				<div class="dialogoAccion">
+					<button id="cerrar" type="button" class="" onclick="muestraInfo()">
+						<img src="img/cerrar_on.png" />
+					</button>
+				</div>
+
+				<div id = "explicacionRecurso" class="explicacionRecurso"></div>
+
+				<div class="creditos">
+					<p  id = "textoDatos1" class="textoDatos1"></p>
+					<p  id = "textoDatos2" class="textoDatos2"></p>
+				</div>
+			</div>
+
+			<div class="cabeceraJuego">
+				<div class="botonera">
+					<div class="divSemieje" id = "divSemieje">
+						<p id = "textoExplicacion2"  class="textoExplicacion2"></p>
+						<input type="range" min="1" max="100" value="50" class="rangeSlider" id="sliderSemieje">
+					</div>
+					<div class="divExcentricidad" id = "divExcentricidad">
+						<p id = "textoExplicacion3" class="textoExplicacion3"></p>
+						<input type="range" min="0" max="100" value="70" class="rangeSlider" id="sliderExcentricidad">
+					</div>
+					<div class="divLineas">
+						<p id = "textoExplicacion4"  class="textoExplicacion4"></p>
+						<label class="switch">
+						  <input type="checkbox" onclick="cambiaModo()">
+						  <span class="slider round"></span>
+						</label>
+					</div>
+					
+				</div>
+				<p id="textoExplicacion" class="textoExplicacion"></p>
+			</div>
+			<div class="general" id="general">
+					<script src='js/p5.min.js'></script>
+					<script src="js/juego.js"></script>
+			</div>
+		</div>
+		<script src="js/jquery.fittext.js"></script>
+		<script type="text/javascript">
+			$(".textoCabecera").fitText(4.5);
+			$('.dialogoInfo').toggle();
+		</script>
+		<script src="js/textos_esES.js"></script>
+
+	</body>
+</html> 
